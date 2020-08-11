@@ -2,6 +2,12 @@
 History
 =======
 
+0.12.0 (2020-TBR)
+-------------------
+ - Add support for marshmallow v3
+ - Remove support for python2 since mm-v3 needs >= p35.
+ - Removed support for toasted since doesn't support mm-v3
+
 0.11.0 (2020-05-30)
 -------------------
  - Drop support for Python 2.7

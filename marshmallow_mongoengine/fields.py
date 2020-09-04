@@ -71,6 +71,13 @@ class Reference(fields.Field):
         return value
 
     def _serialize(self, value, attr, obj, **kwargs):
+
+        # Try to return a nested resolved shema for value
+        try:
+            return value.Meta.schema_map.resolve(value)().dump(value)
+        except Exception:
+            pass
+
         # Only return the pk of the document for serialization
         if value is None:
             return missing

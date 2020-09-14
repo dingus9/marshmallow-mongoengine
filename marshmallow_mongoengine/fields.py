@@ -74,7 +74,12 @@ class Reference(fields.Field):
 
         # Try to return a nested resolved shema for value
         try:
-            return value.Meta.schema_map.resolve(value)().dump(value)
+            resolved = value.Meta.schema_map.resolve(value, attr, obj)
+            if resolved == missing:
+                return missing
+            else:
+                return resolved().dump(value)
+
         except Exception:
             pass
 

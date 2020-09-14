@@ -79,6 +79,7 @@ class Reference(fields.Field):
                 return missing
             else:
                 return resolved().dump(value)
+
         except Exception:
             pass
 
